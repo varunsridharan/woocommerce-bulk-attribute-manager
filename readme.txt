@@ -2,13 +2,13 @@
 Contributors: varunms,advancedstyle
 Author URI: http://varunsridharan.in/
 Plugin URL: https://wordpress.org/plugins/woocommerce-bulk-attribute-manager/
-Tags: WooCommerce
+Tags: affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce,csv, csv import, csv import suite, csv importer, import, import CSV, import XML, woocommerce, woocommerce csv import, woocommerce csv importer, woocommerce xml import, woocommerce xml importer, wp all import, xml, XML Import,multiple images, products, stock, upload, woocommerce, affiliate, attribute, attribute menu, cart, checkout, commerce,attribute editor
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X9CJPMQSLJGA6
 Requires at least: 3.0
 Tested up to: 4.4
 WC requires at least: 1.0
 WC tested up to: 2.4.8
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -59,6 +59,10 @@ The manual installation method involves downloading our plugin and uploading it 
  
 
 == Changelog == 
+= 2.1 =
+* Fixed Issue While Updating Attributes
+* Minor Bug Fix
+
 = 2.0 =
 * Total Plugin Redeveloped
 * Set Attribtues For Product Based On Product Category
@@ -66,6 +70,6 @@ The manual installation method involves downloading our plugin and uploading it 
 * Set Attribtues For Product Based On Product SKU
 * Updated To Latest WP & WooCommerce
 
-= 1.0 =
-* Initial Woocommerce Bulk Attributes Manager release
 
+= 0.1 =
+* Base Version

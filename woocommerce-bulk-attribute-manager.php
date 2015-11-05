@@ -3,7 +3,7 @@
  * Plugin Name:       Woocommerce Bulk Attribute Manager
  * Plugin URI:        https://wordpress.org/plugins/Woocommerce Bulk Attribute Manager/
  * Description:       Manage bulk woocommerce product variations and attribute options
- * Version:           2.0
+ * Version:           2.1
  * Author:            Varun Sridharan
  * Author URI:        http://varunsridharan.in
  * Text Domain:       woocommerce-bulk-attribute-manager
@@ -18,7 +18,7 @@ class Woocommerce_Bulk_Attribute_Manager {
 	/**
 	 * @var string
 	 */
-	public $version = '2.0';
+	public $version = '2.1';
     public static $products = null;
     public static $attribtues = null;
 

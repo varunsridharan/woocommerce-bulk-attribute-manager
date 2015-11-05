@@ -55,16 +55,13 @@ function check_status(){
 function get_attr_info(){
     jQuery('div.debug_log').slideDown();
     var attribute_value = '';
-    jQuery('select.attributes_list').each(function(){
-        attribute_value += '<tr><td>' + jQuery(this).parent().find('h3').text() + '</td>';
+    jQuery('select.attributes_list').find(":selected").each(function(){ 
+        attribute_value += '<tr><td>' + jQuery(this).parent().parent().find('h3').text() + '</td>';
         attribute_value += '<td>';
-        jQuery(this).find(":selected").each(function(){
-            attribute_value += jQuery(this).text() + ' , ';
-        });
+        attribute_value += jQuery(this).text() + ' , ';
         attribute_value += '</td></tr>';
-        
     });
-    
+         
     jQuery('table#attribute_result_log tbody').append(attribute_value);
         
 }

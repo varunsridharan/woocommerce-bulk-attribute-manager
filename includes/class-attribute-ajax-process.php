@@ -26,6 +26,8 @@ class Woocommerce_Bulk_Attribute_Manager_Product_Ajax_Attibutes_Process {
         }
         
         if(empty($values['product_ids'])){$values['product_ids'] = array();}
+        if(empty($values['success'])){$values['success'] = 0;}
+        
 
         $return['status'] = $status;
         $return['total'] = $total;
@@ -57,7 +59,6 @@ class Woocommerce_Bulk_Attribute_Manager_Product_Ajax_Attibutes_Process {
         if(isset($_POST['product_identity']) && !empty($_POST['product_identity'])){
             
             if($_POST['product_identity'] == 'category'){
-                
                 $product_ids = $this->get_ids_from_category();
             } else if($_POST['product_identity'] == 'id'){
                 $product_ids = $this->get_value_array($_POST['product_ids_skus']);
