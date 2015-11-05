@@ -61,7 +61,7 @@ class Woocommerce_Bulk_Attribute_Manager_Product_Functions {
         'post_type'             => 'product',
         'post_status'           => 'publish',
         'ignore_sticky_posts'   => 1,
-        'posts_per_page'        => '0',
+        'posts_per_page'        => '-0',
         'fields' => 'ids',
         'tax_query'             => array(
                                         array(
