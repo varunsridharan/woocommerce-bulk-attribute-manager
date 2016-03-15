@@ -8,7 +8,7 @@ Requires at least: 3.0
 Tested up to: 4.4
 WC requires at least: 1.0
 WC tested up to: 2.4.8
-Stable tag: 2.2
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -59,6 +59,8 @@ The manual installation method involves downloading our plugin and uploading it 
  
 
 == Changelog == 
+= 2.2.1 =
+* Fixed Only few products gettings changed {https://wordpress.org/support/topic/only-changes-1-product?replies=4}
 = 2.2 =
 * Fixed Only 10 Products Getting Changed [https://wordpress.org/support/topic/only-changes-first-10-products]
 = 2.1 =
