@@ -1,6 +1,7 @@
 <div class="wrap">
     <h1><?php _e(WC_BAM_NAME,WC_BAM_TXT); ?></h1>
     
+
     <div class="step_container">
         <div class="stepsForm">
             <form id="wcbam_form" method="post">
@@ -69,7 +70,8 @@
                     <ul class="sf-content">
                         <li class="final_msg">
                             <h3 id="ajax_message" class="">
-                                <?php _e('Are your sure you want to update attributes for selected products ?',WC_BAM_TXT); ?></h3>
+                                <?php _e('Are your sure you want to update attributes for selected products ?',WC_BAM_TXT); ?></h3> <br/>
+                                <button type="button" id="yesIAMOKWITHCHanges" class="button button-primary button-large"><?php _e("Update Attributes :) ",WC_BAM_TXT); ?></button>
 <div class="meter animate"> <span style="width: 50%"><span></span></span> </div>
                             
                             <div class="debug_log">

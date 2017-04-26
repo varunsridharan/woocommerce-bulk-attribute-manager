@@ -112,32 +112,27 @@ class Woocommerce_Bulk_Attribute_Manager_Product_Ajax_Attibutes_Process {
                     $values = $this->check_attribtue_exists($ids,$attribute_key);
                     $attr_exist = $values['exist'];
                     $attributes = $values['attr']; 
-                } else {
-					$this->clear_attributes_products($ids);
-				}
-				
+                }
                 
                 
-//                if(isset($attributes[sanitize_title($attribute_key) ]['is_visible']) && 
-//                   $attributes[sanitize_title($attribute_key) ]['is_visible'] != $loop_attribute_visibility)            {$loop_attribute_visibility = $attributes[sanitize_title($attribute_key) ]['is_visible']; }
-//                
-//                if(isset($attributes[sanitize_title($attribute_key) ]['is_visible']) && 
-//                   $attributes[sanitize_title($attribute_key) ]['is_variation'] != $loop_attribute_variation){$loop_attribute_variation = $attributes[sanitize_title($attribute_key) ]['is_variation']; }
+                if(isset($attributes[sanitize_title($attribute_key) ]['is_visible']) && 
+                   $attributes[sanitize_title($attribute_key) ]['is_visible'] != $loop_attribute_visibility)            {$loop_attribute_visibility = $attributes[sanitize_title($attribute_key) ]['is_visible']; }
+                
+                if(isset($attributes[sanitize_title($attribute_key) ]['is_visible']) && 
+                   $attributes[sanitize_title($attribute_key) ]['is_variation'] != $loop_attribute_variation){$loop_attribute_variation = $attributes[sanitize_title($attribute_key) ]['is_variation']; }
                 
 
-				
                 $attributes[ sanitize_title($attribute_key) ] = array(
                     'name'         => wc_clean($attribute_key),
                     'value'        => '',
                     'position'     => 0,
                     'is_visible'   => $loop_attribute_visibility,
                     'is_variation' => $loop_attribute_variation,
-                    'is_taxonomy'  => taxonomy_exists($attribute_key),
-                );
-				
-                $integerIDs = array_map('intval', $attribute_val);
-                $response_term = wp_set_object_terms(intval($ids), $integerIDs, wc_clean($attribute_key),$attribute_update);
+                    'is_taxonomy'  => 1
+                );            
 
+                $integerIDs = array_map('intval', $attribute_val);
+                $response_term = wp_set_object_terms(intval($ids), $integerIDs, $attribute_key,$attribute_update);
                 $response = update_post_meta( intval($ids), '_product_attributes', $attributes );
             }        
             $done_ids[] = $ids;
@@ -145,13 +140,6 @@ class Woocommerce_Bulk_Attribute_Manager_Product_Ajax_Attibutes_Process {
             $this->status_update($success,$ids,$done_ids);   
         }
     }
-	
-	public function clear_attributes_products($ids){
-		$attributes = get_post_meta($ids, '_product_attributes',true);
-		foreach($attributes as $attribute_key => $attribute){
-			wp_set_object_terms(intval($ids), array(), wc_clean($attribute_key),false);	
-		}
-	}
     
     
     public function check_attribtue_exists($ids,$name){

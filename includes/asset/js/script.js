@@ -6,7 +6,7 @@ jQuery(document).ready(function(){
     jQuery(".stepsForm").stepsForm({ 
         active		:0,
         errormsg	:'Fill Required Fields',
-        sendbtntext	:'Update Attributes',
+        sendbtntext	:'',
         posturl		: ajaxurl,
         theme		:'green',
     });
@@ -21,6 +21,13 @@ jQuery(document).ready(function(){
     jQuery(".meter > span").data("origWidth", jQuery(this).width()).width(0).animate({width: jQuery(this).data("origWidth")}, 1200);
     jQuery('div.meter').hide();
     jQuery('div.debug_log').hide();
+    
+    jQuery("#yesIAMOKWITHCHanges").click(function(){
+        
+        jQuery(this).hide();
+        jQuery.post(ajaxurl, jQuery('form#wcbam_form').serialize(), function (response) {});
+        wc_bam_before_main_ajax_callback();
+    })
 })
 
 function wc_bam_before_main_ajax_callback(){
@@ -55,17 +62,21 @@ function check_status(){
 function get_attr_info(){
     jQuery('div.debug_log').slideDown();
     var attribute_value = '';
+    
     jQuery('select.attributes_list').each(function(){ 
-		attribute_value += '<tr><td>' + jQuery(this).parent().parent().find('h3').text() + '</td>';
-		attribute_value += '<td>';
-		jQuery(this).find(":selected").each(function(){
-			attribute_value += jQuery(this).text() + ' , ';
-		});
-		attribute_value += '</td></tr>';
-});
+        var text = '';
+        jQuery(this).find(":selected").each(function(){
+            text = text + jQuery(this).text() + ',';
+        });
+        attribute_value += '<tr><td>' + jQuery(this).parent().parent().find('h3').text() + '</td>';
+        attribute_value += '<td>';
+        attribute_value += text;
+        attribute_value += '</td></tr>';
+    });
          
     jQuery('table#attribute_result_log tbody').append(attribute_value);
         
 }
+
 function wc_bam_final_ajax(){
 }
